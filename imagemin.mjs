@@ -6,17 +6,23 @@ import svgo from 'imagemin-svgo'
 
 (async () => {
   try {
-    const files = await imagemin(['_resource/assets/img/**/*.{jpg,jpeg,png,svg,gif}'], {
+    console.time('imagemin');
+    // 処理したい画像を渡す
+    await imagemin(['_resource/assets/img/**/*.{jpg,jpeg,png,svg,gif}'], {
         destination: 'build/images',
         plugins: [
+          // png
           pngquant({
             quality: [.65, .8],
             speed: 1
           }),
+          // jpg
           mozjpeg({
             quality: 80
           }),
+          // gif
           gifsicle(),
+          // svg
           svgo({
             plugins: [{
               name: 'preset-default',
@@ -31,11 +37,12 @@ import svgo from 'imagemin-svgo'
             }]
           })
         ],
+        // 出力先
         replaceOutputDir: output => {
           return output.replace(/_resource\/assets\/img\//, './html/assets/img/')
         }
     });
-    console.log(files);
+    console.timeEnd('imagemin');
   }
   catch(error) {
     return console.error('imagemin: ', error);
