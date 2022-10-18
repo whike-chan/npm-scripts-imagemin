@@ -5,10 +5,9 @@
   "main": "imagemin.js",
   "scripts": {
     "img": "node imagemin.mjs",
-    "img:watch": "onchange -k _resource/assets/img/**/*.{jpg,jpeg,png,svg,gif} -- npm run img", 
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "img:watch": "onchange -k _src/assets/img/**/*.{jpg,jpeg,png,svg,gif} -- npm run img"
   },
-  "author": "",
+  "author": "ikegami",
   "license": "ISC",
   "devDependencies": {
     "imagemin": "^8.0.1",
@@ -19,5 +18,8 @@
     "imagemin-svgo": "^10.0.1",
     "onchange": "^7.1.0",
     "path": "^0.12.7"
+  },
+  "volta": {
+    "node": "16.18.0"
   }
 }
