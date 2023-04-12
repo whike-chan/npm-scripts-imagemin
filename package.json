@@ -5,7 +5,8 @@
   "main": "imagemin.js",
   "scripts": {
     "img": "node imagemin.mjs",
-    "img:watch": "onchange -k _src/assets/img/**/*.{jpg,jpeg,png,svg,gif} -- npm run img"
+    "img:watch": "onchange -k _src/assets/img/**/*.{jpg,jpeg,png,svg,gif} -- npm run img",
+    "webp": "node convertWebp.mjs"
   },
   "author": "ikegami",
   "license": "ISC",
@@ -16,10 +17,15 @@
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^9.0.2",
     "imagemin-svgo": "^10.0.1",
+    "imagemin-webp": "^8.0.0",
     "onchange": "^7.1.0",
     "path": "^0.12.7"
   },
+  "resolutions": {
+    "gifsicle": "5.2.1"
+  },
   "volta": {
-    "node": "16.18.0"
+    "node": "16.20.0",
+    "npm": "8.19.4"
   }
 }
