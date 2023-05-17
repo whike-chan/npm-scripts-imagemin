@@ -39,6 +39,7 @@ import svgo from 'imagemin-svgo'
         })
       ],
       // 出力先指定
+      // 処理対象の画像と同じ出力先の場合は不要
       replaceOutputDir: output => {
         return output.replace(/_src\/assets\/img\//, './assets/img/')
       }

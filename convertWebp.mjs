@@ -12,10 +12,12 @@ import imageminWebp from "imagemin-webp"
         imageminWebp()
       ],
       // 出力先指定
-      replaceOutputDir: output => {
-        // return output.replace(/_src\/assets\/img\//, './assets/img/')
-        return output.replace(/.\/assets\/img\//, './assets/img/')
-      }
+      // 処理対象の画像と同じ場所に出力する場合は不要
+      // replaceOutputDir: output => {
+      //   console.log(output)
+      //   // return output.replace(/_src\/assets\/img\//, './assets/img/')
+      //   return output.replace(/.\/assets\/img\//, './assets/img/')
+      // }
     });
 
     console.timeEnd('convertWebp');
